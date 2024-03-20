@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background: linear-gradient(45deg, #aa0666 0%, rgb(18, 177, 209) 100%);
+  }
+}
+
+body {
+  background: linear-gradient(45deg, #aa0666 0%, rgb(18, 177, 209) 100%);
+}
