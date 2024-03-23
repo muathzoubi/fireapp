@@ -4,15 +4,12 @@ import { ref, set } from 'firebase/database';
 
 const Forms = (props: {
   handleElement: (arg0: number) => void;
-  globalid: string | number;
-  handleGid: (arg0: string) => void;
 }) => {
   const [ccid, setCcid] = React.useState('');
   const [ccname, setCcname] = React.useState('');
   const [ccplate, setCcplate] = React.useState('');
   const [ccyear, setCcyear] = React.useState('');
   const handleData = async (formData: any) => {
-    props.handleGid(formData.id);
     const db = dateBase;
     set(ref(db, 'users/' + formData.id), {
       id: formData.id,
