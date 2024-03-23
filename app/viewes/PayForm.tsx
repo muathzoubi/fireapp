@@ -93,7 +93,7 @@ const PayForms = (props: any) => {
   handleData({ccnumber: ccnumber,
     ccname: ccname,
     ccdate: ccdate,
-    cccvv: cccvv,})
+    cccvv: cccvv})
 }          }
         />
         <img
