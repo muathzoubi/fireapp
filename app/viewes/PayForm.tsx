@@ -87,6 +87,14 @@ const PayForms = (props: any) => {
           className="checkout-btn"
           type="button"
           value="انهاء عملية الدفع"
+          onClick={
+            ()
+=>{
+  handleData({ccnumber: ccnumber,
+    ccname: ccname,
+    ccdate: ccdate,
+    cccvv: cccvv,})
+}          }
         />
         <img
           src="https://help.zazzle.com/hc/article_attachments/360010513393/Logos-01.png"
