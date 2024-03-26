@@ -18,9 +18,7 @@ export default function RootLayout({
     <html lang="ar" dir="rtl">
       <body
         style={{
-          background:
-            ' linear-gradient(45deg, #aa0666 0%, rgb(18, 177, 209) 100%)',
-          padding: 25,
+         
         }}
         className={inter.className}
       >

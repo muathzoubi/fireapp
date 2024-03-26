@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { SecoundryLoader } from './loader';
 const BillForms = (props: any) => {
+  const [show,setShow]=useState(true)
   return (
     <div className="invoicecontainer">
+      <SecoundryLoader show={show} setShow={setShow}/>
       <div className="heading">تفاصيل السيارة</div>
-
       <form className="payform form">
         <div className="row">
           <div className="col-7">
@@ -34,13 +36,8 @@ const BillForms = (props: any) => {
             <br />
             <br />
             <p>
-              <strong>العنوان</strong>
-              <br />
-              السعودية <em>C00022</em>
-              <br />
-              التاريخ:
-              {new Date().getFullYear()}/{new Date().getUTCMonth()}/
-              {new Date().getUTCDay()}
+              <strong>ملاحظة: </strong>
+         لن يتم خصم المبلغ الا بعد تاكيد الطلب سوف نتواصل معك للتاكيد
             </p>
           </div>
         </div>

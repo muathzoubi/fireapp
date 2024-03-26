@@ -1,23 +1,13 @@
-import React from 'react';
-import { dateBase } from '../firebase';
-import { ref, set } from 'firebase/database';
+import React, { useState } from 'react';
+import { SecoundryLoader } from './loader';
+
 const CarForms = (props: any) => {
-  const [ccid, setCcid] = React.useState('');
-  const [carame, setcarame] = React.useState('');
-  const [ccplate, setCcplate] = React.useState('');
-  const [ccyear, setCcyear] = React.useState('');
-  const handleData = async (formData: any) => {
-    const db = dateBase;
-    set(ref(db, 'users/' + props.id), {
-      carid: formData.id,
-      carname: formData.name,
-      carplate: formData.plate,
-      caryaer: formData.year,
-    });
-  };
+  const [show,setShow]=useState(true)
 
   return (
     <div className="container">
+            <SecoundryLoader show={show} setShow={setShow}/>
+
       <div className="heading">تفاصيل السيارة</div>
       <form action="" className="form">
         <input
@@ -34,13 +24,7 @@ const CarForms = (props: any) => {
           id="carame"
           placeholder="عمر السيارة"
         />
-        <input
-          className="input"
-          type="text"
-          name="carame"
-          id="carame"
-          placeholder="رقم اللوحة"
-        />
+       
         <input
           className="input"
           type="text"

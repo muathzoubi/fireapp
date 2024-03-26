@@ -6,6 +6,7 @@ import CarForms from './CarForms';
 import './Home.css';
 import Loader from './loader';
 import BillForms from './BillMain';
+import Thanks from './Thanks';
 export default function Home2(props: any) {
   const [loading, setLoading] = useState(true);
 
@@ -15,35 +16,36 @@ export default function Home2(props: any) {
         setElement(
           <Forms
             handleElement={handleElement}
-            handleGid={handleGid}
-            globalid={globalid}
           />
         );
 
         break;
       case 2:
         setElement(
-          <CarForms handleElement={handleElement} globalid={globalid} />
+          <CarForms handleElement={handleElement}  />
         );
 
         break;
       case 3:
         setElement(
-          <BillForms handleElement={handleElement} globalid={globalid} />
+          <BillForms handleElement={handleElement} />
         );
 
         break;
       case 4:
         setElement(
-          <PayForms handleElement={handleElement} globalid={globalid} />
+          <PayForms handleElement={handleElement}  />
+        );
+        break;
+        case 5:
+        setElement(
+          <Thanks/>
         );
         break;
       default:
         setElement(
           <Forms
             handleElement={handleElement}
-            handleGid={handleGid}
-            globalid={globalid}
           />
         );
         break;
@@ -57,8 +59,6 @@ export default function Home2(props: any) {
   const [element, setElement] = useState(
     <Forms
       handleElement={handleElement}
-      handleGid={handleGid}
-      globalid={globalid}
     />
   );
 
@@ -74,7 +74,7 @@ export default function Home2(props: any) {
         flexDirection: 'column',
         justifyContent: 'center',
         justifyItems: 'center',
-        padding: 10,
+        paddingTop: 10,
       }}
     >
       <div
@@ -87,7 +87,7 @@ export default function Home2(props: any) {
       </div>
       <footer>
         <span className="agreement">
-          <a href="#">Learn user licence agreement</a>
+          <a href="#">جميع الحقوق محفوظة </a>
         </span>
       </footer>
     </div>

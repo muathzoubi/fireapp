@@ -1,38 +1,23 @@
-import React from 'react';
-import { dateBase } from '../firebase';
-import { ref, set } from 'firebase/database';
-
+import React, { useState } from 'react';
+import { SecoundryLoader } from './loader';
 const Forms = (props: {
   handleElement: (arg0: number) => void;
 }) => {
-  const [ccid, setCcid] = React.useState('');
-  const [ccname, setCcname] = React.useState('');
-  const [ccplate, setCcplate] = React.useState('');
-  const [ccyear, setCcyear] = React.useState('');
-  const handleData = async (formData: any) => {
-    const db = dateBase;
-    set(ref(db, 'users/' + formData.id), {
-      id: formData.id,
-      name: formData.name,
-      plate: formData.plate,
-      yaer: formData.year,
-    });
-  };
+
 
   return (
     <div className="container">
+
       <div className="heading">بياناتك</div>
       <form className="form">
         <input
-          required
+          required={true}
           className="input"
           type="number"
           name="ccid"
           id="ccid"
           placeholder="رقم الهوية"
-          onChange={(e) => {
-            setCcid(e.target.value);
-          }}
+        
         />
 
         <input
@@ -41,20 +26,17 @@ const Forms = (props: {
           name="ccname"
           id="ccname"
           placeholder="الاسم الثلاثي"
-          onChange={(e) => {
-            setCcname(e.target.value);
-          }}
+       
         />
         <input
-          required
+                    required={true}
+
           className="input"
           type="text"
           name="ccname"
           id="ccname"
           placeholder="رقم اللوحة"
-          onChange={(e) => {
-            setCcplate(e.target.value);
-          }}
+       
         />
         <input
           required
@@ -63,21 +45,13 @@ const Forms = (props: {
           name="ccname"
           id="ccname"
           placeholder="موديل السيارة"
-          onChange={(e) => {
-            setCcyear(e.target.value);
-          }}
+       
         />
         <input
           className="login-button"
           type="submit"
           value="التالي"
           onClick={() => {
-            handleData({
-              id: ccid,
-              name: ccname,
-              plate: ccplate,
-              year: ccyear,
-            });
             props.handleElement(2);
           }}
         />
