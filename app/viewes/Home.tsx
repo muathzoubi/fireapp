@@ -72,9 +72,7 @@ export default function Home2(props: any) {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
-        justifyItems: 'center',
-        paddingTop: 10,
+        paddingTop: 45,
       }}
     >
       <div
