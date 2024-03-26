@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { SecoundryLoader } from './loader';
 const Forms = (props: {
   handleElement: (arg0: number) => void;
 }) => {
